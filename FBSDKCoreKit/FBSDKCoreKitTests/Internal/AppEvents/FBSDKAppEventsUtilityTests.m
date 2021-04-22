@@ -19,7 +19,6 @@
 // @lint-ignore-every CLANGTIDY
 @import TestTools;
 
-#import <AdSupport/AdSupport.h>
 #import <OCMock/OCMock.h>
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
@@ -208,8 +207,7 @@ static NSString *const FBSDKSettingsAdvertisingTrackingStatus = @"com.facebook.s
                                                                                   eventCollectionEnabled:YES];
   [self stubCachedAppEventsConfigurationWithConfiguration:configuration];
   [self stubAdvertisingIdentifierWithIdentifier:NSUUID.UUID];
-  [self stubSharedAsIdentifierManagerWithAsIdentifierManager:self.asIdentifierManagerClassMock];
-
+  
   if (@available(iOS 14.0, *)) {
     XCTAssertNotNil(
       [FBSDKAppEventsUtility.shared advertiserID],
@@ -227,7 +225,6 @@ static NSString *const FBSDKSettingsAdvertisingTrackingStatus = @"com.facebook.s
                                                                                   eventCollectionEnabled:YES];
   [self stubCachedAppEventsConfigurationWithConfiguration:configuration];
   [self stubAdvertisingIdentifierWithIdentifier:NSUUID.UUID];
-  [self stubSharedAsIdentifierManagerWithAsIdentifierManager:self.asIdentifierManagerClassMock];
 
   if (@available(iOS 14.0, *)) {
     XCTAssertNil([FBSDKAppEventsUtility.shared advertiserID]);

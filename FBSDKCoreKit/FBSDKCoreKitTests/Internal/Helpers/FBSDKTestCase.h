@@ -136,9 +136,6 @@ Also, to get a better understanding of mocking, please read the documentation at
 /// Used for sharing a `FBSDKUtility` class mock between tests
 @property (nullable, nonatomic, assign) id utilityClassMock;
 
-/// Used for sharing a `ASIdentifier` class mock between tests
-@property (nullable, nonatomic, assign) id asIdentifierManagerClassMock;
-
 /// Stubs `FBSDKSettings.appID` and return the provided value
 - (void)stubAppID:(nullable NSString *)appID;
 
@@ -234,12 +231,6 @@ Also, to get a better understanding of mocking, please read the documentation at
 
 /// Stubs `FBSDKSettings.isAdvertiserTrackingEnabled` and returns the provided value
 - (void)stubIsAdvertiserTrackingEnabledWith:(BOOL)isAdvertiserTrackingEnabled;
-
-/// Stubs `ASIdentifierManager.sharedManager` and returns the provided identifier manager
-- (void)stubSharedAsIdentifierManagerWithAsIdentifierManager:(id)identifierManager;
-
-/// Stubs `ASIdentifierManager.advertisingIdentifier` and returns the provided value
-- (void)stubAdvertisingIdentifierWithIdentifier:(NSUUID *)uuid;
 
 /// Stubs `FBSDKSettings.isAdvertiserIDCollectionEnabled` and return the provided value
 - (void)stubIsAdvertiserIDCollectionEnabledWith:(BOOL)isAdvertiserIDCollectionEnabled;

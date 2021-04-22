@@ -18,8 +18,6 @@
 
 #import "FBSDKSettings+Internal.h"
 
-#import <AdSupport/AdSupport.h>
-
 #import "FBSDKAccessTokenExpirer.h"
 #import "FBSDKAppEventsConfigurationProtocol.h"
 #import "FBSDKAppEventsConfigurationProviding.h"
@@ -343,7 +341,7 @@ FBSDKSETTINGS_PLIST_CONFIGURATION_SETTING_IMPL(
     return self.advertiserTrackingStatusBacking.unsignedIntegerValue;
   } else {
     // @lint-ignore CLANGTIDY
-    return ASIdentifierManager.sharedManager.advertisingTrackingEnabled ? FBSDKAdvertisingTrackingAllowed : FBSDKAdvertisingTrackingDisallowed;
+    return FBSDKAdvertisingTrackingDisallowed;
   }
 }
 

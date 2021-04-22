@@ -23,9 +23,6 @@
 // For mocking SKAdNetwork
 #import <StoreKit/StoreKit.h>
 
-// For mocking ASIdentifier
-#import <AdSupport/AdSupport.h>
-
 #import "FBSDKAppEvents.h"
 #import "FBSDKAppEvents+Internal.h"
 #import "FBSDKAppEventsState.h"
@@ -190,9 +187,6 @@ typedef void (^FBSDKSKAdNetworkReporterBlock)(void);
 
   [_utilityClassMock stopMocking];
   _utilityClassMock = nil;
-
-  [_asIdentifierManagerClassMock stopMocking];
-  _asIdentifierManagerClassMock = nil;
 }
 
 - (void)setUpSettingsMock
@@ -344,11 +338,6 @@ typedef void (^FBSDKSKAdNetworkReporterBlock)(void);
 - (void)setUpUtilityClassMock
 {
   _utilityClassMock = OCMClassMock(FBSDKUtility.class);
-}
-
-- (void)setUpASIdentifierClassMock
-{
-  _asIdentifierManagerClassMock = OCMClassMock(ASIdentifierManager.class);
 }
 
 #pragma mark - Public Methods
@@ -509,16 +498,6 @@ typedef void (^FBSDKSKAdNetworkReporterBlock)(void);
 - (void)stubCachedAppEventsConfigurationWithConfiguration:(FBSDKAppEventsConfiguration *)configuration
 {
   OCMStub(ClassMethod([self.appEventsConfigurationManagerClassMock cachedAppEventsConfiguration])).andReturn(configuration);
-}
-
-- (void)stubSharedAsIdentifierManagerWithAsIdentifierManager:(ASIdentifierManager *)identifierManager
-{
-  OCMStub([self.asIdentifierManagerClassMock sharedManager]).andReturn(identifierManager);
-}
-
-- (void)stubAdvertisingIdentifierWithIdentifier:(NSUUID *)uuid
-{
-  OCMStub([self.asIdentifierManagerClassMock advertisingIdentifier]).andReturn(uuid);
 }
 
 - (void)stubIsAdvertiserIDCollectionEnabledWith:(BOOL)isAdvertiserIDCollectionEnabled
